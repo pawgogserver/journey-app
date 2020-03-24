@@ -25,13 +25,10 @@ const connectToMongo = async () => {
   mongoose.Promise = global.Promise;
 
   await mongoose
-    .connect(
-      `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0-38xpt.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`,
-      {
-        useUnifiedTopology: true,
-        useNewUrlParser: true
-      }
-    )
+    .connect(process.env.MONGODB_URI, {
+      useUnifiedTopology: true,
+      useNewUrlParser: true
+    })
     .then(() => console.log('DB Connected'))
     .catch(err => {
       console.log(`DB Connection Error: ${err.message}`);
