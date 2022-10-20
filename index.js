@@ -40,7 +40,7 @@ const connectToMongo = async () => {
     await connectToMongo();
     startServer();
   } catch (err) {
-    console.error(`Error connecting to mongo - ${err.message}`);
+    console.error(`Error connecting to MongoDB - ${err.message}`);
     process.exit(1);
   }
 })();
